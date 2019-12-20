@@ -3,7 +3,7 @@ plotly
 dash
 requests
 dash_renderer
-dash-html-components
-dash-core-components
+dash_core_components
+dash_html_components
 pandas
 numpy
