@@ -1,0 +1,96 @@
+body{
+	background-color: black; /* For browsers that do not support gradients */
+	background-image: linear-gradient(rgb(89, 89, 89), black); 
+	font-family: sans-serif;
+}
+
+.filter_by{
+	margin-top: 0px;
+	font-size: 12px;
+}
+
+.filtering_dropdown{
+	margin-bottom: 10px;
+	text-align: center;
+	border-radius: 7px;
+}
+
+.filtering_dropdown:hover{
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, .4);
+}
+
+.grid_item{
+	background-color: white;
+	border-radius: 7px;
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, .9);
+	opacity: 0.95;
+	filter: alpha(opacity=95); /* For IE8 and earlier */
+}
+
+.grid_item:hover{
+    opacity: 1.0;
+	filter: alpha(opacity=100); /* For IE8 and earlier */
+}
+
+.top_left{
+	grid-area: topleft; 
+}
+
+.bottom_left {
+	grid-area: bottomleft; 
+}
+
+.right{
+	grid-area: right; 
+}
+
+.first_grid{
+	display: grid;
+	grid-template-areas:
+    'topleft right'
+    'bottomleft right';
+	grid-template-columns: 25% 72.5%;
+	grid-template-rows: 30% 70%;
+	grid-column-gap: 2.5%;
+	padding: 1.75%;
+	height: 500px}
+
+
+
+/* Overwriting default styles */
+
+.Select-input a:hover{
+	background-color: pink;
+}
+
+
+.dash-debug-menu--closed{
+	background-color:#1ED760 !important;
+}
+
+.dash-debug-menu--closed:hover{
+	background-color:#18ab4b !important;
+}
+
+.svg-container{
+	margin-top:10px !important;
+}
+
+
+.Select{
+	width: 100.4%;
+}
+
+select option:hover,
+    select option:focus,
+    select option:active {
+        background: linear-gradient(#000000, #000000);
+        background-color: #000000 !important; /* for IE */
+        color: #ffed00 !important;
+    }
+
+    select option:checked {
+        background: linear-gradient(#d6d6d6, #d6d6d6);
+        background-color: #d6d6d6 !important; /* for IE */
+        color: #000000 !important;
+    }
