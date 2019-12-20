@@ -8,6 +8,7 @@ import plotly.graph_objs as go
 
 
 app = dash.Dash(__name__)
+server =app.server
 
 # read data
 df = pd.read_csv('spotify_month.csv')
