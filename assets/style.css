@@ -13,6 +13,7 @@ body{
 	margin-bottom: 10px;
 	text-align: center;
 	border-radius: 7px;
+	z-index: 20;
 }
 
 .filtering_dropdown:hover{
@@ -34,6 +35,7 @@ body{
 
 .top_left{
 	grid-area: topleft; 
+	text-align: center;
 }
 
 .bottom_left {
@@ -53,17 +55,17 @@ body{
 	grid-template-rows: 30% 70%;
 	grid-column-gap: 2.5%;
 	padding: 1.75%;
-	height: 500px}
+	height: 500px;
+}
+
+.footer{
+	color:white;
+	font-size: 11px;
+}
 
 
 
 /* Overwriting default styles */
-
-.Select-input a:hover{
-	background-color: pink;
-}
-
-
 .dash-debug-menu--closed{
 	background-color:#1ED760 !important;
 }
@@ -76,21 +78,6 @@ body{
 	margin-top:10px !important;
 }
 
-
 .Select{
 	width: 100.4%;
 }
-
-select option:hover,
-    select option:focus,
-    select option:active {
-        background: linear-gradient(#000000, #000000);
-        background-color: #000000 !important; /* for IE */
-        color: #ffed00 !important;
-    }
-
-    select option:checked {
-        background: linear-gradient(#d6d6d6, #d6d6d6);
-        background-color: #d6d6d6 !important; /* for IE */
-        color: #000000 !important;
-    }
