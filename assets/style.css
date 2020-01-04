@@ -1,19 +1,51 @@
 body{
 	background-color: black; /* For browsers that do not support gradients */
 	background-image: linear-gradient(rgb(89, 89, 89), black); 
-	font-family: sans-serif;
+	font-family: Tahoma, Geneva, sans-serif;
+	color: #444444; /* Same as Plotly's title default color */
+}
+
+#logo{
+	height: 70px;
+	width: auto;
+}
+
+#app_title{
+	color: white;
+	font-size: 20px; 
+	margin-left: 70px; 
+	margin-top: -10px;
+}
+
+a{
+  color: #1ED760;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #1ED760;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
+  background-color: transparent;
+  text-decoration: underline;
 }
 
 .filter_by{
-	margin-top: 0px;
+	margin-top: 10px;
 	font-size: 12px;
 }
 
 .filtering_dropdown{
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 	text-align: center;
 	border-radius: 7px;
 	z-index: 20;
+	font-size: 13px;
 }
 
 .filtering_dropdown:hover{
@@ -40,6 +72,10 @@ body{
 
 .bottom_left {
 	grid-area: bottomleft; 
+	width: 90%;
+	margin: auto;
+	padding: 10px; 
+	text-align: center;
 }
 
 .right{
@@ -52,17 +88,67 @@ body{
     'topleft right'
     'bottomleft right';
 	grid-template-columns: 25% 72.5%;
-	grid-template-rows: 30% 70%;
+	grid-template-rows: 25% 75%;
 	grid-column-gap: 2.5%;
 	padding: 1.75%;
 	height: 500px;
 }
 
+.second_grid{
+	display: grid;
+	grid-template-columns: 60% 37.5%;
+	grid-column-gap: 2.5%;
+	padding: 1.75%;
+	height": 500px;
+}
+
+.graph{
+	width: 95%;
+	margin: auto;
+}
+
+#date_slider{
+	width: 95%;
+	margin: auto;
+	padding: 0;
+}
+
+#output_slider{
+	font-size: 10px;
+	margin-top: 20px;
+	margin-bottom: 32px;
+}
+
+#ylabel{
+	font-family: "Open Sans", verdana, arial, sans-serif; 
+	font-size: 14px; 
+	opacity: 1; 
+	font-weight: normal; 
+	white-space: pre;
+	transform: rotate(-90deg);
+	z-index: 20;
+	width: 150px;
+	text-align: center;
+	position: relative;
+	margin:0;
+	right:7.3%;
+	bottom:43.5%;
+}
+
+#function_graph{
+	margin-left:50px;
+}
+
+.no_show{
+	display: none;
+}
+
 .footer{
 	color:white;
 	font-size: 11px;
+	text-align: center;
+	margin-top: 20px;
 }
-
 
 
 /* Overwriting default styles */
@@ -80,4 +166,20 @@ body{
 
 .Select{
 	width: 100.4%;
+}
+
+.rc-slider-handle{
+	border: solid 2px #1ED760 !important;
+}
+
+.rc-slider-track{
+	background-color: rgb(167, 241, 193) !important;
+}
+
+.rc-slider-mark{
+	font-size: 8px !important;
+}
+
+.rc-slider-dot-active{
+	border-color: rgb(167, 241, 193) !important;
 }
