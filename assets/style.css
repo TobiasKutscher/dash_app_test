@@ -110,7 +110,7 @@ a:hover {
 #date_slider{
 	width: 95%;
 	margin: auto;
-	padding: 0;
+	padding: 0 !important;
 }
 
 #output_slider{
