@@ -128,12 +128,11 @@ app.layout = html.Div([
         ),
 
         html.Div([
-            dcc.Loading([html.Div([
+            html.Div([
                 dcc.Graph(id="choropleth_map")
             ],
                 className="graph"
-            )]),
-            ,
+            ),
         ],
             className="grid_item right"
         ),
