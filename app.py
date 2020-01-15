@@ -145,10 +145,10 @@ app.layout = html.Div([
     html.Div([
         html.Div([
             dcc.Loading([
-            dcc.Graph(id="bar_chart"),
+            dcc.Graph(id="bar_chart")],type='circle',color='#1ED760', id="bar-loading"),
             html.P(
                 "Songs", id="ylabel"
-            )],type='circle',color='#1ED760', id="bar-loading")
+            )
         ],
             className="grid_item"
         ),
