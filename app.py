@@ -145,7 +145,7 @@ app.layout = html.Div([
     html.Div([
         html.Div([
             dcc.Loading([
-            dcc.Graph(id="bar_chart")],type='circle',color='#1ED760' id="map-loading"),
+            dcc.Graph(id="bar_chart")],type='circle',color='#1ED760' id="bar-loading"),
             html.P(
                 "Songs", id="ylabel"
             ),
@@ -155,7 +155,7 @@ app.layout = html.Div([
         html.Div([
             html.Div([
                 dcc.Loading([
-                dcc.Graph(id="line_chart")],type='circle',color='#1ED760' id="map-loading")
+                dcc.Graph(id="line_chart")],type='circle',color='#1ED760' id="line-loading")
             ],
                 className="graph"
             ),
