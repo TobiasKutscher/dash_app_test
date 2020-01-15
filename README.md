@@ -1,3 +1,3 @@
-# Deploying your Dash app online
+# Deploying Spotify Dash app online
 
-Enjoy at https://dashexample.herokuapp.com/
+https://spotify-dash-project.herokuapp.com/
