@@ -129,7 +129,8 @@ app.layout = html.Div([
 
         html.Div([
             html.Div([
-                dcc.Graph(id="choropleth_map")
+                dcc.Loading([
+                dcc.Graph(id="indicator-map")],type='circle',color='#1ED760' id="map-loading")
             ],
                 className="graph"
             ),
@@ -143,7 +144,8 @@ app.layout = html.Div([
 
     html.Div([
         html.Div([
-            dcc.Graph(id="bar_chart"),
+            dcc.Loading([
+            dcc.Graph(id="bar_chart")],type='circle',color='#1ED760' id="map-loading"),
             html.P(
                 "Songs", id="ylabel"
             ),
@@ -152,7 +154,8 @@ app.layout = html.Div([
         ),
         html.Div([
             html.Div([
-                dcc.Graph(id="line_chart")
+                dcc.Loading([
+                dcc.Graph(id="line_chart")],type='circle',color='#1ED760' id="map-loading")
             ],
                 className="graph"
             ),
