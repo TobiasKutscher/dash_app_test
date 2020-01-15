@@ -129,8 +129,7 @@ app.layout = html.Div([
 
         html.Div([
             html.Div([
-                dcc.Loading([
-                dcc.Graph(id="indicator-map")],type='circle',color='#1ED760', id="map-loading")
+                dcc.Graph(id="choropleth_map")
             ],
                 className="graph"
             ),
