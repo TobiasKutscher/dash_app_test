@@ -7,7 +7,7 @@ import plotly.graph_objs as go
 import ast
 
 app = dash.Dash(__name__)
-server =app.server
+server = app.server
 # When going on github we should put this line of code###
 # server = app.server()
 
@@ -17,12 +17,6 @@ df = df.dropna()
 # Only keep cases where we have data for multiple months
 df["to_delete"] = df["Track URL"] + df["Country"]
 df = df[df["to_delete"].duplicated(keep=False)]
-
-colors = {
-    "background": "#111111",
-    "background2": "#FF0",
-    "text": "#7FDBFF"
-}
 
 # Add map codes
 df_countries = pd.read_csv("https://raw.githubusercontent.com/plotly/datasets/master/gapminder_with_codes.csv")
@@ -169,6 +163,23 @@ app.layout = html.Div([
         className="second_grid"
     ),
 
+    html.Div([
+
+        html.Div([
+            html.P(
+                "x", id="close_text"
+            ),
+        ],
+            className="popup_close_button"
+        ),
+        html.P(
+            "No data available for this selection!", id="popup_text"
+        ),
+
+    ],
+        id="popup_error"
+    ),
+
     html.Footer([
         html.Label(["Data Visualization | Fall Semester 2019 | Abdallah Zaher, M20190684 | "
                     "Cristina Mousinho, M20190303 | Gabriel Santos, M20190925 | Tobias Kutscher, M20190188 | "
@@ -219,6 +230,33 @@ def set_date_options(selected_country):
 def set_date_options(selected_country):
     if not selected_country:
         return "no_show"
+
+
+@app.callback(
+    Output("popup_error", "className"),
+    [Input("country", "value"),
+     Input("date_slider", "value"),
+     Input("artist", "value"),
+     Input("song", "value"),
+     Input("close_text", "n_clicks")])
+def toggle_pop_up(selected_country, selected_date, selected_artist, selected_song, close_pop):
+    if close_pop:
+        return "no_show"
+
+    if selected_date and selected_country and not selected_artist and not selected_song:
+        date_list = [date_codes[x] for x in range(selected_date[0], selected_date[1] + 1)]
+        if df.loc[(df["Country"] == selected_country) & (df["month_year"].isin(date_list))].empty:
+            return "show"
+    elif selected_date and selected_country and selected_artist and not selected_song:
+        date_list = [date_codes[x] for x in range(selected_date[0], selected_date[1] + 1)]
+        if df.loc[(df["Country"] == selected_country) & (df["Artist"] == selected_artist)
+                  & (df["month_year"].isin(date_list))].empty:
+            return "show"
+    elif selected_date and selected_country and selected_artist and selected_song:
+        date_list = [date_codes[x] for x in range(selected_date[0], selected_date[1] + 1)]
+        if df.loc[(df["Country"] == selected_country) & (df["Artist"] == selected_artist)
+                  & (df["Track Name"] == selected_song) & (df["month_year"].isin(date_list))].empty:
+            return "show"
 
 
 @app.callback(

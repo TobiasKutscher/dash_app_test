@@ -91,7 +91,7 @@ a:hover {
 	grid-template-rows: 25% 75%;
 	grid-column-gap: 2.5%;
 	padding: 1.75%;
-	height: 500px;
+	height: 50%;
 }
 
 .second_grid{
@@ -99,7 +99,7 @@ a:hover {
 	grid-template-columns: 60% 37.5%;
 	grid-column-gap: 2.5%;
 	padding: 1.75%;
-	height": 500px;
+	height": 50%;
 }
 
 .graph{
@@ -137,11 +137,59 @@ a:hover {
 
 #function_graph{
 	margin-left:50px;
+	height: 100%;
+}
+
+#choropleth_map{
+	height:100%;
+}
+
+#popup_error {
+	width: 35%;
+	position: fixed;
+	top: 35%;
+	right: 27%;
+	padding: 15px 20px;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 5px; 
+	margin-bottom: 2%;
+	background: #bcf6cd;
+	color: black;
+	display:none;
+}
+
+#popup_error:hover{
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, .4);
+}
+
+.popup_close_button {
+	color: #aaaaaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.popup_close_button:hover,
+.popup_close_button:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+#close_text{
+	display: inline-block;
+	margin-top: 50%;
 }
 
 .no_show{
 	display: none;
 }
+
+.show{
+	display: block !important;
+}
+
 
 .footer{
 	color:white;
