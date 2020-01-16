@@ -6,9 +6,18 @@ import pandas as pd
 import plotly.graph_objs as go
 import ast
 
-app = dash.Dash(__name__)
+external_scripts = [
+    {
+        'src': 'https://code.jquery.com/jquery-3.2.1.min.js',
+        'integrity': "sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=",
+        'crossorigin': 'anonymous'
+    },
+    'assets/spotify_script.js'
+]
+
+app = dash.Dash(__name__, external_scripts=external_scripts,)
 server = app.server
-# When going on github we should put this line of code###
+# When going on github we should put this line of code #
 # server = app.server()
 
 # read data
@@ -130,7 +139,9 @@ app.layout = html.Div([
         html.Div([
             html.Div([
                 dcc.Loading([
-                dcc.Graph(id="choropleth_map")],type='circle',color='#1ED760', id="map-loading")
+                    dcc.Graph(id="choropleth_map")],
+                    type='circle', color='#1ED760', id="map-loading"
+                )
             ],
                 className="graph"
             ),
@@ -145,7 +156,8 @@ app.layout = html.Div([
     html.Div([
         html.Div([
             dcc.Loading([
-            dcc.Graph(id="bar_chart")],type='circle',color='#1ED760', id="bar-loading"),
+                dcc.Graph(id="bar_chart"),
+            ], type='circle', color='#1ED760', id="bar-loading"),
             html.P(
                 "Songs", id="ylabel"
             )
@@ -155,7 +167,8 @@ app.layout = html.Div([
         html.Div([
             html.Div([
                 dcc.Loading([
-                dcc.Graph(id="line_chart")],type='circle',color='#1ED760', id="line-loading")
+                    dcc.Graph(id="line_chart")], type='circle', color='#1ED760', id="line-loading"
+                )
             ],
                 className="graph"
             ),
@@ -173,7 +186,7 @@ app.layout = html.Div([
                 "x", id="close_text"
             ),
         ],
-            className="popup_close_button"
+            id="popup_close_button"
         ),
         html.P(
             "No data available for this selection!", id="popup_text"
@@ -240,12 +253,8 @@ def set_date_options(selected_country):
     [Input("country", "value"),
      Input("date_slider", "value"),
      Input("artist", "value"),
-     Input("song", "value"),
-     Input("close_text", "n_clicks")])
-def toggle_pop_up(selected_country, selected_date, selected_artist, selected_song, close_pop):
-    if close_pop:
-        return "no_show"
-
+     Input("song", "value")])
+def toggle_pop_up(selected_country, selected_date, selected_artist, selected_song):
     if selected_date and selected_country and not selected_artist and not selected_song:
         date_list = [date_codes[x] for x in range(selected_date[0], selected_date[1] + 1)]
         if df.loc[(df["Country"] == selected_country) & (df["month_year"].isin(date_list))].empty:

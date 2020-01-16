@@ -163,15 +163,15 @@ a:hover {
 	box-shadow: 1px 2px 4px rgba(0, 0, 0, .4);
 }
 
-.popup_close_button {
+#popup_close_button {
 	color: #aaaaaa;
 	float: right;
 	font-size: 28px;
 	font-weight: bold;
 }
 
-.popup_close_button:hover,
-.popup_close_button:focus {
+#popup_close_button:hover,
+#popup_close_button:focus {
 	color: #000;
 	text-decoration: none;
 	cursor: pointer;
